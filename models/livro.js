@@ -14,9 +14,10 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   livro.init({
+    autorId: DataTypes.INTEGER,
     titulo: DataTypes.STRING,
     editora: DataTypes.STRING,
-    data_publicacao: DataTypes.DATE,
+    datapublicacao: DataTypes.DATE,
     preco: DataTypes.STRING
   }, {
     sequelize,
