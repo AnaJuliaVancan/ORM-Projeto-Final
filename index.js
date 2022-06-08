@@ -2,17 +2,13 @@ var express = require("express");
 var app = express();
 var{autor} = require("./models");
 var{livro} = require("./models");
+var cors = require('cors')
 
 app.use(express.json());
 app.use(express.urlencoded({
   extended: true
 }))
-
-app.get("/", async function(req, res){
-  var mostrar = await autor.findAll();
-  res.json(mostrar)
-})
-
+app.use(cors())
 //Autores
 
 app.get("/autores", async function(req, res){
@@ -75,6 +71,6 @@ app.delete("/livros/:id", async function(req, res){
   res.json(apagar)
 })
 
-app.listen(3004, function(){
+app.listen(3000, function(){
   console.log("Funcionando!")
 })
